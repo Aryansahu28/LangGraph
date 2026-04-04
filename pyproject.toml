@@ -1,0 +1,17 @@
+[project]
+name = "langchain-tutorial"
+version = "0.1.0"
+description = "LangChain + Ollama setup using uv"
+readme = "README.md"
+
+dependencies = [
+    "langchain",
+    "langgraph",
+    "langchain-ollama",
+    "python-dotenv>=1.2.1",
+    "opencv-python",
+    "open-clip-torch",
+    "torch",
+    "torchvision",
+]
+
