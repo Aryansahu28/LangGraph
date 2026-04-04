@@ -13,5 +13,8 @@ dependencies = [
     "open-clip-torch",
     "torch",
     "torchvision",
+    "langchain-huggingface>=1.2.1",
+    "huggingface-hub>=1.9.0",
+    "transformers>=5.5.0",
 ]
 
