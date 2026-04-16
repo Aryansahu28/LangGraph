@@ -1,5 +1,5 @@
 import streamlit as st
-from chatbot_backend import workflow
+from langgraph_database import workflow,retrieve_all_threads
 from langchain_core.messages import HumanMessage
 import logging
 import warnings
@@ -41,6 +41,8 @@ def add_threads(thread_id):
 def load_conservation(thread_id):
     return workflow.get_state(config={"configurable": {"thread_id": st.session_state["thread_id"]}}).values["messages"]
 
+
+
 #------------------------------------------ Session State ------------------------------------------------
 if 'message_history' not in st.session_state:
     st.session_state['message_history'] = []
@@ -53,7 +55,8 @@ if 'thread_id' not in st.session_state:
     st.session_state["thread_id"] = generate_uuid()
 
 if 'chat_threads' not in st.session_state:
-    st.session_state['chat_threads'] = []
+    logging.info(list(retrieve_all_threads()))
+    st.session_state['chat_threads'] = list(retrieve_all_threads())
 
 
 add_threads(st.session_state['thread_id'])
