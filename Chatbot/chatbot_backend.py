@@ -2,8 +2,7 @@ from langgraph.graph import START,END,StateGraph
 from langgraph.graph.message import add_messages
 from langgraph.checkpoint.memory import InMemorySaver
 from langchain_core.messages import BaseMessage
-from pydantic import BaseModel,Field
-from typing import Annotated,Optional,TypedDict
+from typing import Annotated,TypedDict
 from langchain_huggingface import HuggingFaceEndpoint,ChatHuggingFace
 from dotenv import load_dotenv
 
@@ -39,3 +38,16 @@ graph.add_edge(START,'chatbot')
 graph.add_edge('chatbot',END)
 
 workflow = graph.compile(checkpointer=checkpointer)
+
+# CONFIG = {"configurable": {"thread_id": "thread_1"}}
+
+# result = workflow.invoke({'messages':[HumanMessage(content='What is pasta?')]},config=CONFIG)
+# print(result['messages'][-1].content)
+
+# for chunk in workflow.stream(
+    
+# ):
+#     if chunk["type"]=="messages":
+#             message_chunk, metadata = chunk["data"] 
+#             if message_chunk.content:
+#                 print(message_chunk.content,end="", flush=True)
