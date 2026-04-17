@@ -16,5 +16,7 @@ dependencies = [
     "langchain-huggingface>=1.2.1",
     "huggingface-hub>=1.9.0",
     "transformers>=5.5.0",
+    "streamlit>=1.56.0",
+    "langgraph-checkpoint-sqlite>=3.0.3",
 ]
 
